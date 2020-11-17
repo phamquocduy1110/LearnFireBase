@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimary2">#61FD00</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimaryDark2">#1976d2</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent2">#f50057</color>
+    <color name="dark_blue">#3023AE</color>
+    <color name="purple">#c86dd7</color>
+    <color name="red">#F60505</color>
+    <color name="blue">#2196F3</color>
+    <color name="light_blue">#00BCD4</color>
+    <color name="green">#61FD00</color>
+    <color name="green_light">#A4FF6B</color>
+    <color name="green_light_2">#97FF60</color>
+    <color name="white">#ccffffff</color>
 
     <color name="login_form_details">#ccffffff</color>
     <color name="login_form_details_light">#1affffff</color>
+    <color name="login_form_details_medium">#66ffffff</color>
+
+    <color name="black">#000000</color>
+    <color name="black_light">#202020</color>
+    <color name="gray">#363636</color>
+    <color name="yellow">#ffc72a</color>
+    <color name="yellow_light">#ffcd3f</color>
 
 </resources>
