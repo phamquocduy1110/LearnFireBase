@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1022010258927",
+    "firebase_url": "https://sakbankonlinesystem.firebaseio.com",
+    "project_id": "sakbankonlinesystem",
+    "storage_bucket": "sakbankonlinesystem.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1022010258927:android:94f0d426ff9b33d38a321a",
+        "android_client_info": {
+          "package_name": "com.example.learnfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1022010258927-m0i0kr3q60f13sofe19mq2hesut55uq5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.learnfirebase",
+            "certificate_hash": "01b41dba6623be7e36e37499bbd5142e6bf7bc38"
+          }
+        },
+        {
+          "client_id": "1022010258927-bnv7u5n9ddr15lo7el0jhljoncugur0s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR_AV-OIVXuZ8mIujuZOa7uXsvI08gZVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1022010258927-bnv7u5n9ddr15lo7el0jhljoncugur0s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
