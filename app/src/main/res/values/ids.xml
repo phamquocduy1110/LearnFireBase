@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="guideline_left" type="id" />
+    <item name="guideline_right" type="id" />
+    <item name="txtUserName" type="id" />
+    <item name="txtPassword" type="id" />
+</resources>
