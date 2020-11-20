@@ -10,11 +10,14 @@ import android.widget.RadioButton;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class RegisterActivity extends AppCompatActivity {
 
     EditText fullName, dateOfBirth, phoneNumber, email, inputPassword, re_enterPassword, currentAmount, address, nationalID;
     Button register, cancel;
     RadioButton male, female;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,7 +47,5 @@ public class RegisterActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 }
