@@ -77,7 +77,9 @@ public class RegisterActivity extends AppCompatActivity {
                 String Password = inputPassword.getText().toString().trim();
                 String Re_password = re_enterPassword.getText().toString().trim();
                 String Ammount = currentAmount.getText().toString().trim();
+                String Address = address.getText().toString().trim();
                 String Nationalid = nationalID.getText().toString().trim();
+                String phone = phoneNumber.getText().toString().trim();
 
                 if (Name.isEmpty()) {
                     fullName.setError("Full name is required! Please input your name");
@@ -143,6 +145,9 @@ public class RegisterActivity extends AppCompatActivity {
                             user.put("fName",fullName);
                             user.put("email",email);
                             user.put("phone",phoneNumber);
+                            user.put("ammount", currentAmount);
+                            user.put("address", address);
+                            user.put("nationalId", nationalID);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
