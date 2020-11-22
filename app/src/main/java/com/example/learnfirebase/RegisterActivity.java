@@ -148,7 +148,7 @@ public class RegisterActivity extends AppCompatActivity {
                             user.put("fName", Name);
                             user.put("email", Email);
                             user.put("password", Password);
-                            user.put("re_password", "Re_password");
+                            user.put("re_password", Re_password);
                             user.put("phone", phone);
                             user.put("ammount", Ammount);
                             user.put("address", Address);
