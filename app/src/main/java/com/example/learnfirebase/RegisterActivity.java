@@ -119,6 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this,"Error Occurred!",Toast.LENGTH_SHORT).show();
                 }
 
+                // Create user account in CloudStore
                 firebaseAuth.createUserWithEmailAndPassword(Email, Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -140,14 +141,18 @@ public class RegisterActivity extends AppCompatActivity {
 
                             Toast.makeText(RegisterActivity.this, "User account has been created.", Toast.LENGTH_SHORT).show();
                             userID = firebaseAuth.getCurrentUser().getUid();
+
+                            //Create database in CloudStore
                             DocumentReference documentReference = firestore.collection("users").document(userID);
                             Map<String,Object> user = new HashMap<>();
-                            user.put("fName",fullName);
-                            user.put("email",email);
-                            user.put("phone",phoneNumber);
-                            user.put("ammount", currentAmount);
-                            user.put("address", address);
-                            user.put("nationalId", nationalID);
+                            user.put("fName", Name);
+                            user.put("email", Email);
+                            user.put("password", Password);
+                            user.put("re_password", "Re_password");
+                            user.put("phone", phone);
+                            user.put("ammount", Ammount);
+                            user.put("address", Address);
+                            user.put("nationalId", Nationalid);
                             documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -156,7 +161,7 @@ public class RegisterActivity extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: " + e.toString());
+                                    Log.d(TAG, "onFailure: Failed to create new user Profile" + e.toString());
                                 }
                             });
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
