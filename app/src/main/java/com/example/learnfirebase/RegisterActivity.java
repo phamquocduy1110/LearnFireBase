@@ -26,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -68,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
             finish();
         }
 
-        // Click to register a account
+//        // Click to register a account
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,40 +84,43 @@ public class RegisterActivity extends AppCompatActivity {
 
                 if (Name.isEmpty()) {
                     fullName.setError("Full name is required! Please input your name");
-                    fullName.requestFocus();
+                    return;
                 }
 
-                else if (Email.isEmpty()) {
+                if (Email.isEmpty()) {
                     email.setError("Email is required! Please input your email address");
-                    email.requestFocus();
+                    return;
+
                 }
 
-                else if (Password.isEmpty()) {
+                if (Password.isEmpty()) {
                     inputPassword.setError("Password is required! Please input your password");
-                    inputPassword.requestFocus();
+                    return;
+
                 }
 
-                else if (Password.length() < 6) {
+                if (Password.length() < 6) {
                     inputPassword.setError("Password must be >= 6 characters! Please input your password again");
-                    inputPassword.requestFocus();
+                    return;
+
                 }
 
-                else  if (Re_password.isEmpty()) {
+                if (Re_password.isEmpty()) {
                     re_enterPassword.setError("This Re_password is required! Please input this again");
-                    re_enterPassword.requestFocus();
+                    return;
+
                 }
 
-                else if (Re_password.length() != Password.length()) {
+                if (Re_password.length() != Password.length()) {
                     re_enterPassword.setError("This field must be same as password! Please input agian");
-                    re_enterPassword.requestFocus();
-                }
-                else if (Ammount.isEmpty()) {
-                    currentAmount.setError("Ammount is required! Please input an ammount you want");
-                    currentAmount.requestFocus();
+                    return;
+
                 }
 
-                else {
-                    Toast.makeText(RegisterActivity.this,"Error Occurred!",Toast.LENGTH_SHORT).show();
+                if (Ammount.isEmpty()) {
+                    currentAmount.setError("Ammount is required! Please input an ammount you want");
+                    return;
+
                 }
 
                 // Create user account in CloudStore
@@ -131,6 +135,32 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(RegisterActivity.this, "Verification Email Has been Sent.", Toast.LENGTH_SHORT).show();
+                                    //Create database in CloudStore
+                                    userID = task.getResult().getUser().getUid();
+                                    Logger.getLogger("Test").warning(userID);
+                                    DocumentReference documentReference = firestore.collection("users").document(userID);
+                                    Map<String,Object> user = new HashMap<>();
+                                    user.put("fName", Name);
+                                    user.put("email", Email);
+                                    user.put("password", Password);
+                                    user.put("re_password", Re_password);
+                                    user.put("phone", phone);
+                                    user.put("ammount", Ammount);
+                                    user.put("address", Address);
+                                    user.put("nationalId", Nationalid);
+                                    documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void aVoid) {
+                                            Logger.getLogger("Test").warning("ok " + userID);
+                                            Toast.makeText(RegisterActivity.this, "User account has been created.", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Logger.getLogger("Error").warning("failed " + e.getMessage());
+                                        }
+                                    });
+                                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
@@ -138,34 +168,6 @@ public class RegisterActivity extends AppCompatActivity {
                                     Log.d(TAG, "onFailure: Email not sent " + e.getMessage());
                                 }
                             });
-
-                            Toast.makeText(RegisterActivity.this, "User account has been created.", Toast.LENGTH_SHORT).show();
-                            userID = firebaseAuth.getCurrentUser().getUid();
-
-                            //Create database in CloudStore
-                            DocumentReference documentReference = firestore.collection("users").document(userID);
-                            Map<String,Object> user = new HashMap<>();
-                            user.put("fName", Name);
-                            user.put("email", Email);
-                            user.put("password", Password);
-                            user.put("re_password", Re_password);
-                            user.put("phone", phone);
-                            user.put("ammount", Ammount);
-                            user.put("address", Address);
-                            user.put("nationalId", Nationalid);
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "onSuccess: user Profile is created for "+ userID);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: Failed to create new user Profile" + e.toString());
-                                }
-                            });
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-
                         }else {
                             Toast.makeText(RegisterActivity.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
@@ -173,7 +175,7 @@ public class RegisterActivity extends AppCompatActivity {
                 });
             }
         });
-
+//
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
