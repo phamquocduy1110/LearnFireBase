@@ -45,6 +45,8 @@ public class LoginActivity extends AppCompatActivity {
         login = (Button) findViewById(R.id.btnLogin);
         register_login = (Button) findViewById(R.id.btnRegister_Login);
 
+        // Connect to Firebase
+        firebaseAuth = firebaseAuth.getInstance();
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            Logger.getLogger("Test").warning("logged in successfully");
                         }else {
                             Toast.makeText(LoginActivity.this, "Error account! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }

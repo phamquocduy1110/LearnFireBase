@@ -33,6 +33,7 @@
                 android:contentDescription="logo" />
 
             <ImageView
+                android:id="@+id/ivProfileAvatar"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
@@ -53,7 +54,7 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtFullName"
+                android:id="@+id/txtProfileName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_bg"
@@ -75,7 +76,7 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtDateOfBirth"
+                android:id="@+id/txtProfileBirthdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_bg"
@@ -141,7 +142,7 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtPhoneNumber"
+                android:id="@+id/txtProfilePhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_bg"
@@ -163,7 +164,7 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtEmail"
+                android:id="@+id/txtProfileEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_bg"
@@ -186,7 +187,7 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtCurrentAmount"
+                android:id="@+id/txtProfileAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_bg"
@@ -209,7 +210,7 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtAddress"
+                android:id="@+id/txtProfileAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_bg"
@@ -231,7 +232,7 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtNationalID"
+                android:id="@+id/txtProfileNationalID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_bg"
@@ -253,7 +254,7 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtDescription"
+                android:id="@+id/txtProfileDescription"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:background="@drawable/et_bg"
@@ -271,7 +272,7 @@
                 android:paddingRight="5dp" >
 
                 <Button
-                    android:id="@+id/BtnSaveButton"
+                    android:id="@+id/btnProfileSave"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
@@ -281,7 +282,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btnCancelButton"
+                    android:id="@+id/btnProfileCancelButton"
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="200dp"

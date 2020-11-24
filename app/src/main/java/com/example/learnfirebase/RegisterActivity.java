@@ -135,6 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(RegisterActivity.this, "Verification Email Has been Sent.", Toast.LENGTH_SHORT).show();
+
                                     //Create database in CloudStore
                                     userID = task.getResult().getUser().getUid();
                                     Logger.getLogger("Test").warning(userID);

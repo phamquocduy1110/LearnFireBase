@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.logging.Logger;
+
 public class HomeActivity extends AppCompatActivity {
 
     ImageView imageView;
@@ -22,6 +24,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
+                Logger.getLogger("Test").warning("Move to Profile ");
                 startActivity(intent);
             }
         });
