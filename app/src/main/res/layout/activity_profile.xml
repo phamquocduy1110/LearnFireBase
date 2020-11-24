@@ -36,8 +36,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/ic_user"
-                android:background="@color/white" />
+                android:src="@drawable/ic_user" />
 
             <TextView
                 android:id="@+id/tvFullName"
@@ -111,9 +110,9 @@
                     android:layout_marginRight="5dp"
                     android:text="Female"
                     android:layout_marginLeft="20dp"
-                    android:buttonTint="@color/white"
+                    android:buttonTint="@color/white_LightMode"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/white_LightMode"
                     android:textSize="20dp" />
 
                 <RadioButton
@@ -123,9 +122,9 @@
                     android:layout_marginRight="5dp"
                     android:text="Male"
                     android:layout_marginLeft="240dp"
-                    android:buttonTint="@color/white"
+                    android:buttonTint="@color/white_LightMode"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/white_LightMode"
                     android:textSize="20dp" />
             </RelativeLayout>
 

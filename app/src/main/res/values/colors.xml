@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimary2">#61FD00</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorPrimaryDark2">#1976d2</color>
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorAccent2">#f50057</color>
-    <color name="dark_blue">#3023AE</color>
-    <color name="purple">#c86dd7</color>
-    <color name="red">#F60505</color>
-    <color name="blue">#2196F3</color>
-    <color name="light_blue">#00BCD4</color>
-    <color name="green">#61FD00</color>
-    <color name="green_light">#A4FF6B</color>
-    <color name="green_light_2">#97FF60</color>
-    <color name="white">#ccffffff</color>
+    <color name="colorPrimary">#FFC107</color>
+    <color name="colorPrimaryDark">#FFA000</color>
+    <color name="backgroundcolor">#fcfcfc</color>
+    <color name="lightgray">#ededed</color>
+    <color name="deeppurple">#7c4dff</color>
+    <color name="yello">#ffb300</color>
+    <color name="green">#00bfa5</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="darkblue">#23283a</color>
+    <color name="testcolorblue">#152b38</color>
+    <color name="pink">#fe104d</color>
+    <color name="dark_blue">#0027FF</color>
+    <color name="red">#FF0000</color>
+    <color name="black_overlay">#66000000</color>
 
     <color name="login_form_details">#ccffffff</color>
     <color name="login_form_details_light">#1affffff</color>
@@ -35,5 +34,7 @@
     <color name="blue_light_LightMode">#0039d3</color>
     <color name="blue_LightMode">#0133c2</color>
     <color name="blue_dark_LightMode">#010e3d</color>
+
+
 
 </resources>
