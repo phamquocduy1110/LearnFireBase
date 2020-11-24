@@ -273,6 +273,7 @@
                         android:background="@drawable/button_background"
                         android:gravity="center">
                         <ImageView
+                            android:id="@+id/AccountInfromation"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:background="@drawable/background_icon_homepage"

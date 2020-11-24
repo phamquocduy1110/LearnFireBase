@@ -160,7 +160,7 @@ public class RegisterActivity extends AppCompatActivity {
                                             Logger.getLogger("Error").warning("failed " + e.getMessage());
                                         }
                                     });
-                                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                    startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
