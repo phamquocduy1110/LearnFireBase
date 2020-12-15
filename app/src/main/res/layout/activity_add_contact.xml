@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:name="android.support.multidex.MultiDexApplication"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:background="@color/colorPrimaryDark">
+    android:background="@color/colorPrimaryDark"
+    tools:context=".AddContactActivity">
 
     <ScrollView
-        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="643dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,16 +33,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="logo"
-                android:text="Register a new MAB account"
+                android:text="Add new MAB contact"
                 android:textColor="@color/login_form_details"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/txtFullName"
+                android:id="@+id/txtAddID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:background="@drawable/et_bg"
+                android:textColor="@color/login_form_details"
+                android:textSize="20dp"
+                android:hint="Add ID"
+                android:padding="16dp"
+                android:textColorHint="@color/login_form_details" />
+
+            <EditText
+                android:id="@+id/txtFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/et_bg"
                 android:textColor="@color/login_form_details"
                 android:textSize="20dp"
@@ -51,37 +63,25 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtDateOfBirth"
+                android:id="@+id/txtAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/et_bg"
                 android:textColor="@color/login_form_details"
                 android:textSize="20dp"
-                android:hint="Date of birth"
+                android:hint="Address"
                 android:padding="16dp"
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtGender"
+                android:id="@+id/txtOfficePhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/et_bg"
                 android:textColor="@color/login_form_details"
                 android:textSize="20dp"
-                android:hint="Gender"
-                android:layout_marginTop="10dp"
-                android:padding="16dp"
-                android:textColorHint="@color/login_form_details" />
-
-            <EditText
-                android:id="@+id/txtPhoneNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
-                android:textColor="@color/login_form_details"
-                android:textSize="20dp"
-                android:hint="Phone number"
+                android:hint="Office phone"
                 android:layout_marginTop="10dp"
                 android:padding="16dp"
                 android:textColorHint="@color/login_form_details" />
@@ -99,72 +99,48 @@
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtInputPassword"
+                android:id="@+id/txtGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/et_bg"
                 android:textColor="@color/login_form_details"
                 android:textSize="20dp"
-                android:hint="Input password"
+                android:hint="Gender"
+                android:layout_marginTop="10dp"
                 android:padding="16dp"
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtRe_enterPassword"
+                android:id="@+id/txtHomePhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/et_bg"
                 android:textColor="@color/login_form_details"
                 android:textSize="20dp"
-                android:hint="Re-enter password"
+                android:hint="Home phone"
                 android:padding="16dp"
                 android:textColorHint="@color/login_form_details" />
 
             <EditText
-                android:id="@+id/txtCurrentAmount"
+                android:id="@+id/txtMobilePhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/et_bg"
                 android:textColor="@color/login_form_details"
                 android:textSize="20dp"
-                android:hint="Current amount"
-                android:padding="16dp"
-                android:textColorHint="@color/login_form_details" />
-
-            <EditText
-                android:id="@+id/txtAddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/et_bg"
-                android:textColor="@color/login_form_details"
-                android:textSize="20dp"
-                android:hint="Address"
-                android:padding="16dp"
-                android:textColorHint="@color/login_form_details" />
-
-            <EditText
-                android:id="@+id/txtNationalID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/et_bg"
-                android:textColor="@color/login_form_details"
-                android:textSize="20dp"
-                android:hint="National ID"
+                android:hint="Mobile phone"
                 android:padding="16dp"
                 android:textColorHint="@color/login_form_details" />
 
             <Button
-                android:id="@+id/btnRegister"
+                android:id="@+id/btnAddContact"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/btn_bg"
-                android:text="Register"
+                android:text="Add Contact"
                 android:textSize="15dp"
                 android:textAllCaps="false"
                 android:padding="16dp"
@@ -184,6 +160,8 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="50dp"/>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
+

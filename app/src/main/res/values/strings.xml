@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">LearnFirebase</string>
+    <string name="register_saying">New to MAB? <b>Register</b> now! </string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -131,7 +130,9 @@
                         android:orientation="vertical"
                         android:background="@drawable/button_background"
                         android:gravity="center">
+
                         <ImageView
+                            android:id="@+id/AddContact"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:background="@drawable/cerclebackgroundgreen"
@@ -143,7 +144,7 @@
                             android:textStyle="bold"
                             android:textColor="@color/black_LightMode"
                             android:layout_marginTop="10dp"
-                            android:text="Add"/>
+                            android:text="Add contact"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -153,7 +154,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Check your bank activities"
+                            android:text="Create new contact you want"
                             android:padding="5dp"
                             android:textColor="@color/gray_light_DarkMode"/>
 
@@ -178,14 +179,14 @@
                             android:layout_height="64dp"
                             android:background="@drawable/cerclebackgroundyello"
                             android:padding="10dp"
-                            android:src="@drawable/ic_attach_file_black_24dp" />
+                            android:src="@drawable/ic_baseline_contact_24" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:textColor="@color/black_LightMode"
-                            android:text="Links"
+                            android:text="Contacts"
                             android:textStyle="bold" />
 
                         <View
@@ -199,7 +200,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="5dp"
-                            android:text="Check your bank activities"
+                            android:text="See your all contacts"
                             android:textColor="@color/gray_light_DarkMode" />
 
                     </LinearLayout>
@@ -277,7 +278,7 @@
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:background="@drawable/background_icon_homepage"
-                            android:src="@drawable/ic_wifi_black_24dp"
+                            android:src="@drawable/ic_user_lightmode"
                             android:padding="10dp"/>
                         <TextView
                             android:layout_width="wrap_content"

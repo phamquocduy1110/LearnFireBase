@@ -31,7 +31,7 @@ import java.util.logging.Logger;
 public class RegisterActivity extends AppCompatActivity {
 
     public static final String TAG = "TAG";
-    EditText fullName, dateOfBirth, phoneNumber, email, inputPassword, re_enterPassword, currentAmount, address, nationalID;
+    EditText fullName, dateOfBirth, phoneNumber, email, inputPassword, re_enterPassword, currentAmount, address, nationalID, gender;
     Button register, cancel;
     RadioButton male, female;
     FirebaseAuth firebaseAuth;
@@ -52,12 +52,10 @@ public class RegisterActivity extends AppCompatActivity {
         currentAmount = (EditText)findViewById(R.id.txtCurrentAmount);
         address = (EditText)findViewById(R.id.txtAddress);
         nationalID = (EditText)findViewById(R.id.txtNationalID);
+        gender = (EditText)findViewById(R.id.txtGender);
 
         register = (Button)findViewById(R.id.btnRegister);
         cancel = (Button)findViewById(R.id.btnCancel);
-
-        male = (RadioButton)findViewById(R.id.rdMale);
-        female = (RadioButton)findViewById(R.id.rdFemale);
 
         // Connect to Firebase
         firebaseAuth = FirebaseAuth.getInstance();

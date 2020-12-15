@@ -12,19 +12,30 @@ import java.util.logging.Logger;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ImageView imageView;
+    ImageView accountInformation, addContact;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        imageView = (ImageView)findViewById(R.id.AccountInfromation);
-        imageView.setOnClickListener(new View.OnClickListener() {
+        // Go to account information page
+        accountInformation = (ImageView)findViewById(R.id.AccountInfromation);
+        accountInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ProfileActivity.class);
                 Logger.getLogger("Test").warning("Move to Profile ");
+                startActivity(intent);
+            }
+        });
+
+        addContact = (ImageView)findViewById(R.id.AddContact);
+        addContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, AddContactActivity.class);
+                Logger.getLogger("Test").warning("Move to Add Contact ");
                 startActivity(intent);
             }
         });
