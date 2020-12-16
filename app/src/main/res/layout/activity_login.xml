@@ -36,7 +36,7 @@
         android:id="@+id/icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register a new MAB account"
+        android:text="Login MAB account"
         android:textColor="@color/login_form_details"
         android:textSize="15dp"
         android:textStyle="bold"
@@ -93,14 +93,16 @@
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
-    <TextView
-        android:id="@+id/tvRegister_Login"
+    <Button
+        android:id="@+id/btnRegister_Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:text="@string/register_saying"
         android:textColor="@color/login_form_details"
+        android:background="@color/colorPrimaryDark"
         android:textSize="16sp"
+        android:textAllCaps="false"
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
