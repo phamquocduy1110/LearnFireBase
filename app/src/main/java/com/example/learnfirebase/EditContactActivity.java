@@ -11,13 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 @SuppressWarnings("unchecked")
 public class EditContactActivity extends AppCompatActivity {
@@ -26,7 +35,18 @@ public class EditContactActivity extends AppCompatActivity {
     Button cancel, update, delete;
     String key;
 
-    void Matching() {
+    FirebaseAuth firebaseAuth;
+    FirebaseFirestore firestore;
+    FirebaseDatabase database;
+    FirebaseUser firebaseUser;
+    DatabaseReference databaseReference;
+    StorageReference storageReference;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_edit_contact);
+
         id = (EditText) findViewById(R.id.txtAddID);
         name = (EditText) findViewById(R.id.txtFullName);
         address = (EditText) findViewById(R.id.txtAddress);
@@ -37,22 +57,60 @@ public class EditContactActivity extends AppCompatActivity {
         mobilePhone = (EditText) findViewById(R.id.txtMobilePhone);
 
         cancel = (Button) findViewById(R.id.btnCancel);
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         update = (Button) findViewById(R.id.btnUpdateContact);
         delete = (Button) findViewById(R.id.btnDeleteContact);
-    }
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_contact);
-        Matching();
-        getContactDetail();
+        // Connect to  Firebase's Authentication
+        firebaseAuth = FirebaseAuth.getInstance();
+        // Connect to  Firebase's FireStore
+        firestore = FirebaseFirestore.getInstance();
+        database = FirebaseDatabase.getInstance();
+        firebaseUser = firebaseAuth.getCurrentUser();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+        // Load data from Firebase back to system
+        // Get key form ContactActivity
+        Intent intent = getIntent();
+        key = intent.getStringExtra("KEY");
+        // Get data from Firebase
+        database = FirebaseDatabase.getInstance();
+        // kết nối tới từng table trong db
+        databaseReference = database.getReference("contacts");
+        //truy suất và lắng nghe sự thay đổi dữ liệu
+        //chỉ truy suất node được chọn trên ListView myRef.child(key)
+        //addListenerForSingleValueEvent để lấy dữ liệu đơn
+        databaseReference.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                try {
+                    //trả về 1 DataSnapShot, mà giá trị đơn nên gọi getValue trả về 1 HashMap
+                    HashMap<String,Object> hashMap= (HashMap<String, Object>) dataSnapshot.getValue();
+                    //HashMap này sẽ có kích  thước bằng số Node con bên trong node truy vấn
+                    //mỗi phần tử có key là name được định nghĩa trong cấu trúc Json của Firebase
+                    id.setText(key);
+                    name.setText(hashMap.get("name").toString());
+                    email.setText(hashMap.get("email").toString());
+                    address.setText(hashMap.get("address").toString());
+                    address.setText(hashMap.get("address").toString());
+                    gender.setText(hashMap.get("gender").toString());
+                    // lấy dữ liệu phần số điện thoại
+                    HashMap phone = (HashMap) hashMap.get("phone");
+                    homePhone.setText(phone.get("home").toString());
+                    officePhone.setText(phone.get("office").toString());
+                    mobilePhone.setText(phone.get("mobile").toString());
+
+
+                } catch (Exception e) {
+                    Log.d("LOI_JSON",e.toString());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d("LOI_CHITIET", "loadPost:onCancelled", databaseError.toException());
+
+            }
+        });
 
         update.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,47 +152,11 @@ public class EditContactActivity extends AppCompatActivity {
 
             }
         });
-    }
 
-    private void getContactDetail() {
-        // lấy key được truyền từ MainActivity
-        Intent intent = getIntent();
-        key = intent.getStringExtra("KEY");
-        // lấy dữ liệu từ firebase
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        // kết nối tới từng table trong db
-        DatabaseReference myReference = database.getReference("contacts");
-        //truy suất và lắng nghe sự thay đổi dữ liệu
-        //chỉ truy suất node được chọn trên ListView myRef.child(key)
-        //addListenerForSingleValueEvent để lấy dữ liệu đơn
-        myReference.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                try {
-                    //trả về 1 DataSnapShot, mà giá trị đơn nên gọi getValue trả về 1 HashMap
-                    HashMap<String,Object> hashMap= (HashMap<String, Object>) dataSnapshot.getValue();
-                    //HashMap này sẽ có kích  thước bằng số Node con bên trong node truy vấn
-                    //mỗi phần tử có key là name được định nghĩa trong cấu trúc Json của Firebase
-                    id.setText(key);
-                    name.setText(hashMap.get("name").toString());
-                    email.setText(hashMap.get("email").toString());
-                    address.setText(hashMap.get("address").toString());
-                    address.setText(hashMap.get("address").toString());
-                    gender.setText(hashMap.get("gender").toString());
-                    // lấy dữ liệu phần số điện thoại
-                    HashMap phone = (HashMap) hashMap.get("phone");
-                    homePhone.setText(phone.get("home").toString());
-                    officePhone.setText(phone.get("office").toString());
-                    mobilePhone.setText(phone.get("mobile").toString());
-
-                } catch (Exception e) {
-                    Log.d("LOI_JSON",e.toString());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.d("LOI_CHITIET", "loadPost:onCancelled", databaseError.toException());
+            public void onClick(View v) {
+                finish();
             }
         });
     }

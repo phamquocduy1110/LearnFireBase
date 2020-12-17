@@ -15,11 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".HomeActivity"></activity>
-        <activity android:name=".ProfileActivity"></activity>
-        <activity android:name=".AddContactActivity"></activity>
-        <activity android:name=".ContactsActivity"></activity>
-        <activity android:name=".EditContactActivity"></activity>
+<!--        <activity android:name=".RegisterActivity"/>-->
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".ProfileActivity"/>
+        <activity android:name=".AddContactActivity"/>
+        <activity android:name=".ContactsActivity"/>
+        <activity android:name=".EditContactActivity"/>
     </application>
 </manifest>

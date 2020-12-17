@@ -32,7 +32,8 @@ import java.util.logging.Logger;
 public class LoginActivity extends AppCompatActivity {
 
     EditText userName, password;
-    Button login, register_login;
+    Button login;
+//    TextView register;
 
     FirebaseAuth firebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
@@ -45,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         userName = (EditText) findViewById(R.id.txtUserName);
         password = (EditText) findViewById(R.id.txtPassword);
         login = (Button) findViewById(R.id.btnLogin);
-        register_login = (Button)findViewById(R.id.btnRegister_Login);
+//        register = (TextView) findViewById(R.id.btnRegister_Login);
 
         // Connect to Firebase
         firebaseAuth = firebaseAuth.getInstance();
@@ -88,13 +89,13 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        register_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
+//        register.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }
 

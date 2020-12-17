@@ -35,7 +35,7 @@ import javax.annotation.Nullable;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    EditText Profile_fullname, Profile_dateofbirth, Profile_phone, Profile_email, Profile_currentammount, Profile_address, Profile_nationalId, Profile_description;
+    EditText Profile_fullname, Profile_dateofbirth, Profile_phone, Profile_email, Profile_currentammount, Profile_address, Profile_nationalId, Profile_description, Profile_gender;
     Button Profile_save, Profile_cancel;
     ImageView Profile_imageAvatar;
 
@@ -58,10 +58,11 @@ public class ProfileActivity extends AppCompatActivity {
         Profile_address = (EditText)findViewById(R.id.txtProfileAddress);
         Profile_nationalId = (EditText)findViewById(R.id.txtProfileNationalID);
         Profile_description = (EditText)findViewById(R.id.txtProfileDescription);
+        Profile_gender = (EditText)findViewById(R.id.txtGender);
 
         Profile_imageAvatar = (ImageView)findViewById(R.id.ivProfileAvatar);
         Profile_save = (Button)findViewById(R.id.btnProfileSave);
-        Profile_cancel = (Button)findViewById(R.id.btnProfileCancelButton);
+        Profile_cancel = (Button)findViewById(R.id.btnProfileCancel);
 
 //        Intent data = getIntent();
 //        final String fullName = data.getStringExtra("Name");
@@ -97,6 +98,7 @@ public class ProfileActivity extends AppCompatActivity {
                 if(documentSnapshot.exists()){
                     Profile_fullname.setText(documentSnapshot.getString("fName"));
                     Logger.getLogger("Test birthdate").warning(documentSnapshot.getString("birthdate"));
+                    Profile_gender.setText(documentSnapshot.getString("gender"));
                     Profile_dateofbirth.setText(documentSnapshot.getString("birthdate"));
                     Profile_phone.setText(documentSnapshot.getString("phone"));
                     Profile_email.setText(documentSnapshot.getString("email"));
@@ -127,6 +129,7 @@ public class ProfileActivity extends AppCompatActivity {
                         Map<String,Object> edited = new HashMap<>();
                         edited.put("fName",Profile_fullname.getText().toString());
                         edited.put("birthdate",Profile_dateofbirth.getText().toString());
+                        edited.put("gender",Profile_gender.getText().toString());
                         edited.put("phone",Profile_phone.getText().toString());
                         edited.put("email",Email);
                         edited.put("ammount", Profile_currentammount.getText().toString());

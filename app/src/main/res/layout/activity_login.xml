@@ -93,32 +93,32 @@
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
 
-    <Button
-        android:id="@+id/btnRegister_Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="@string/register_saying"
-        android:textColor="@color/login_form_details"
-        android:background="@color/colorPrimaryDark"
-        android:textSize="16sp"
-        android:textAllCaps="false"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+<!--    <TextView-->
+<!--        android:id="@+id/btnRegister_Login"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="72dp"-->
+<!--        android:text="@string/register_saying"-->
+<!--        android:textColor="@color/login_form_details"-->
+<!--        android:background="@color/colorPrimaryDark"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textAllCaps="false"-->
+<!--        app:layout_constraintHorizontal_bias="0.467"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/guideline_right"-->
+<!--        app:layout_constraintStart_toStartOf="@id/guideline_left"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btnLogin" />-->
 
-    <TextView
-        android:id="@+id/tvForgotPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Forgot password?"
-        android:textColor="@color/login_form_details"
-        android:textSize="16sp"
-        app:layout_constraintHorizontal_bias="0.467"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvForgotPassword"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="28dp"-->
+<!--        android:text="Forgot password?"-->
+<!--        android:textColor="@color/login_form_details"-->
+<!--        android:textSize="16sp"-->
+<!--        app:layout_constraintHorizontal_bias="0.467"-->
+<!--        app:layout_constraintEnd_toStartOf="@id/guideline_right"-->
+<!--        app:layout_constraintStart_toStartOf="@id/guideline_left"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/btnLogin" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -62,7 +62,7 @@ public class ContactsActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String data=adapter.getItem(position);
-                String key=data.split("\n")[1];
+                String key=data.split("\n")[0];
                 Intent intent=new Intent(ContactsActivity.this,EditContactActivity.class);
                 intent.putExtra("KEY",key);
                 startActivity(intent);

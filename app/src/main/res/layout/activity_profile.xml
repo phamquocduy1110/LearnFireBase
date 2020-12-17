@@ -153,7 +153,7 @@
                 android:id="@+id/txtProfileEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
+                android:background="@drawable/et_dark_bg"
                 android:textColor="@color/login_form_details"
                 android:textSize="20dp"
                 android:focusable="false"
@@ -178,7 +178,7 @@
                 android:id="@+id/txtProfileAmount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
+                android:background="@drawable/et_dark_bg"
                 android:textColor="@color/login_form_details"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
@@ -225,7 +225,7 @@
                 android:id="@+id/txtProfileNationalID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/et_bg"
+                android:background="@drawable/et_dark_bg"
                 android:textColor="@color/login_form_details"
                 android:focusable="false"
                 android:focusableInTouchMode="false"
@@ -255,38 +255,33 @@
                 android:padding="16dp"
                 android:textColorHint="@color/login_form_details" />
 
-            <RelativeLayout
-                android:layout_width="fill_parent"
+            <Button
+                android:id="@+id/btnProfileSave"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="horizontal"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp" >
+                android:layout_marginTop="20dp"
+                android:background="@drawable/btn_bg"
+                android:text="Save"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+                android:padding="16dp"
+                android:textColor="@color/gray_dark_DarkMode" />
 
-                <Button
-                    android:id="@+id/btnProfileSave"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:background="@drawable/btn_bg"
-                    android:text="Save"
-                    android:textAllCaps="false"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnProfileCancelButton"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
-                    android:background="@drawable/btn_cancel_bg"
-                    android:text="Cancel"
-                    android:textColor="@color/login_form_details"
-                    android:textAllCaps="false"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+            <Button
+                android:id="@+id/btnProfileCancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/btn_cancel_bg"
+                android:text="Cancel"
+                android:textSize="15dp"
+                android:textAllCaps="false"
+                android:padding="16dp"
+                android:textColor="@color/login_form_details" />
 
             <View
                 android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
                 android:layout_height="50dp"/>
         </LinearLayout>
     </ScrollView>
