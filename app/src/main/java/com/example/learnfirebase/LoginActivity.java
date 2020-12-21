@@ -1,6 +1,10 @@
 package com.example.learnfirebase;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,8 +35,9 @@ import java.util.logging.Logger;
 
 public class LoginActivity extends AppCompatActivity {
 
+    Dialog dialog;
     EditText userName, password;
-    Button login;
+    Button login, ok;
 //    TextView register;
 
     FirebaseAuth firebaseAuth;
@@ -42,6 +47,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        dialog = new Dialog(this);
 
         userName = (EditText) findViewById(R.id.txtUserName);
         password = (EditText) findViewById(R.id.txtPassword);
@@ -77,12 +84,16 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+                            dialog.setContentView(R.layout.activity_logged_in_successfully_message);
+                            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                            dialog.show();
                             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                            Logger.getLogger("Test").warning("logged in successfully");
+//                            Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
+//                            Logger.getLogger("Test").warning("logged in successfully");
                         }else {
-                            Toast.makeText(LoginActivity.this, "Error account! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
+                            dialog.setContentView(R.layout.activity_logged_in_failed_message);
+                            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                            dialog.show();                        }
 
                     }
                 });

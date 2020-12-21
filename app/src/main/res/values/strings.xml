@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">LearnFirebase</string>
     <string name="register_saying">New to MAB? <b>Register</b> now! </string>
+    <string name="login_failed_message">Error! Maybe this account does not exist. Please check your account then login again</string>
 </resources>
