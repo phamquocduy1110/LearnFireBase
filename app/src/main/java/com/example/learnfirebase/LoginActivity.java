@@ -1,6 +1,7 @@
 package com.example.learnfirebase;
 
 import android.app.Dialog;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +39,8 @@ public class LoginActivity extends AppCompatActivity {
 
     Dialog dialog;
     EditText userName, password;
-    Button login, ok;
+    Button login, ok, close;
+    ImageView positiveClose;
 //    TextView register;
 
     FirebaseAuth firebaseAuth;
@@ -85,13 +88,30 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             dialog.setContentView(R.layout.activity_logged_in_successfully_message);
+                            ok = (Button) dialog.findViewById(R.id.btnOK);
+                            ok.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Logger.getLogger("Test").warning("Button ok is clicked");
+                                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                                }
+                            });
                             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                             dialog.show();
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+
+//                            NotificationDialog mDialog = new NotificationDialog();
+//                            mDialog.show(getSupportFragmentManager(), null);
 //                            Toast.makeText(LoginActivity.this, "Logged in Successfully", Toast.LENGTH_SHORT).show();
 //                            Logger.getLogger("Test").warning("logged in successfully");
                         }else {
                             dialog.setContentView(R.layout.activity_logged_in_failed_message);
+                            close = (Button) dialog.findViewById(R.id.btnClose);
+                            close.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialog.dismiss();
+                                }
+                            });
                             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                             dialog.show();                        }
 

@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 public class HomeActivity extends AppCompatActivity {
 
-    ImageView accountInformation, addContact, contacts;
+    ImageView accountInformation, addContact, contacts, banking;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,6 +45,16 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ContactsActivity.class);
+                Logger.getLogger("Test").warning("Move to Add Contact ");
+                startActivity(intent);
+            }
+        });
+
+        banking = (ImageView)findViewById(R.id.btnBanking);
+        banking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, NotificationDialog.class);
                 Logger.getLogger("Test").warning("Move to Add Contact ");
                 startActivity(intent);
             }

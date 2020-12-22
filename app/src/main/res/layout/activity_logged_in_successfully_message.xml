@@ -9,9 +9,10 @@
     android:gravity="center">
 
 <!--    <ImageView-->
+<!--        android:id="@+id/imgPositiveClose"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/ic_login_24"-->
+<!--        android:src="@drawable/ic_close_24"-->
 <!--        android:layout_marginTop="7dp"-->
 <!--        android:layout_marginRight="7dp"-->
 <!--        android:elevation="5dp"-->

@@ -44,6 +44,7 @@
                         android:gravity="center">
 
                         <ImageView
+                            android:id="@+id/btnBanking"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
                             android:background="@drawable/cerclebackgroundpurple"
